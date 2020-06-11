@@ -54,6 +54,13 @@ stages:
         repository: captureorder
         command: push
         tags: $(tag)
+- task: aquasecScanner@4
+  inputs:
+    scanType: 'local'
+    register: false
+    hideBase: false
+    showNegligible: false
+    windowsScannerVersion: '4.2.0'
 
     - task: PublishPipelineArtifact@0
       inputs:
